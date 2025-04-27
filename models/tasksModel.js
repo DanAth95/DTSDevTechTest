@@ -1,7 +1,9 @@
 const db = require("../db/connection");
 const format = require("pg-format");
 
-exports.fetchTasks = () => {
+exports.fetchTasks = (query) => {
+  const allowedSortBy = ["status", "due_date"];
+  const allowedOrder = ["asc", "desc"];
   return db.query("SELECT * FROM tasks").then(({ rows }) => {
     return rows;
   });
@@ -38,17 +40,20 @@ exports.createTask = (newTask) => {
 };
 
 exports.updateTask = (update, id) => {
-  return db
-    .query(`UPDATE tasks SET status = $1 WHERE task_id = $2 RETURNING *`, [
-      update,
-      id,
-    ])
-    .then(({ rows }) => {
-      if (rows.length === 0) {
-        return Promise.reject({ status: 404, msg: "Task Not Found" });
-      }
-      return rows[0];
-    });
+  if (update.status) {
+    update = update.status;
+    return db
+      .query(`UPDATE tasks SET status = $1 WHERE task_id = $2 RETURNING *`, [
+        update,
+        id,
+      ])
+      .then(({ rows }) => {
+        if (rows.length === 0) {
+          return Promise.reject({ status: 404, msg: "Task Not Found" });
+        }
+        return rows[0];
+      });
+  }
 };
 
 exports.removeTask = (id) => {

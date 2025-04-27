@@ -1,0 +1,48 @@
+{
+  "GET /api/tasks": {
+    "description": "return an array of all tasks",
+    "example response": [
+      {
+        "title": "Task 1",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "status": "Incomplete",
+        "due_date": "2025-05-01",
+        "due_time": "12:00:00"
+      },
+      {
+        "title": "Task 2",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "status": "Incomplete",
+        "due_date": "2025-05-01",
+        "due_time": "12:00:00"
+      }
+    ]
+  },
+  "GET /api/tasks/:task_id": {
+    "description": "return a task by given id",
+    "example response": {
+      "title": "Task 1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "status": "Incomplete",
+      "due_date": "2025-05-01",
+      "due_time": "12:00:00"
+    }
+  },
+  "POST /api/tasks": {
+    "description": "posts a new task and returns the newly posted task",
+    "example response": {
+      "title": "Task 5",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "status": "Incomplete",
+      "due_date": "2025-05-01",
+      "due_time": "12:00:00"
+    }
+  },
+  "PATCH /api/tasks/:task_id": {
+    "description": "patches an existing task by task_id",
+    "allowed updates": ["status"]
+  },
+  "DELETE /api/tasks/:task_id": {
+    "description": "deletes an existing task by task_id"
+  }
+}

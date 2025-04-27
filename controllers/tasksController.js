@@ -39,7 +39,7 @@ exports.postTask = (req, res, next) => {
 };
 
 exports.patchTask = (req, res, next) => {
-  const update = req.body.status;
+  const update = req.body;
   const id = req.params.task_id;
   return updateTask(update, id)
     .then((task) => {

@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "DTS Technical Test - Create a back-end and front-end for a task service",
   "main": "listen.js",
-  "devDependencies": {},
   "scripts": {
     "test": "test"
   },

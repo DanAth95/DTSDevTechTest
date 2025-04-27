@@ -5,15 +5,21 @@
   "main": "listen.js",
   "scripts": {
     "start": "node listen.js",
-    "test": "test",
+    "test": "jest",
     "setup-dbs": "psql -f ./db/setup.sql",
     "seed": "node ./db/seeds/run-seed.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "pg": "^8.15.6"
+    "pg": "^8.15.6",
+    "pg-format": "^1.0.4"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.1.0"
+  }
 }

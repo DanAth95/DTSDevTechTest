@@ -4,10 +4,15 @@
   "description": "DTS Technical Test - Create a back-end and front-end for a task service",
   "main": "listen.js",
   "scripts": {
-    "test": "test"
+    "start": "node listen.js",
+    "test": "test",
+    "setup-dbs": "psql -f ./db/setup.sql",
+    "seed": "node ./db/seeds/run-seed.js"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "pg": "^8.15.6"
   },
   "author": "",
   "license": "ISC"
